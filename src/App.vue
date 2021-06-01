@@ -11,9 +11,15 @@
   --yellow: #FCC003;
   --dark-yellow: #E0AF15;
   --orange: #EE7B01;
+  --blue: #1F5EFF;
+  --blue-transparent: #1F5EFF55;
+  --blue-transparent-light: #1f5fff34;
   --brown: #2B1106;
   --black: #232323;
   --white: #FFFFFF;
+
+  --gray: #E0E0E0;
+  --dark-gray: #BDBDBD;
 
   font-size: 62.5%;
 }
@@ -33,6 +39,7 @@
 
 input, textarea, button {
   font-family:  'Jost', sans-serif;
+  font-size: 1.6rem;
   font-weight: 500;
   color: var(--black);
 }

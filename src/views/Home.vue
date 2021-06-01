@@ -7,17 +7,22 @@
       </div>
 
       <div class="card-footer">
-        <router-link :to="{ name: 'login' }" class="sign-in">Login</router-link>
+        <SButton :to="{ name: 'login' }">Login</SButton>
 
-        <router-link :to="{ name: 'register' }" class="sign-up">Cadastrar-se</router-link>
+        <SButton :to="{ name: 'register' }" outlined>Cadastrar-se</SButton>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import SButton from '@/components/SButton.vue';
+
 export default {
   name: 'Home',
+  components: {
+    SButton,
+  },
 };
 </script>
 
