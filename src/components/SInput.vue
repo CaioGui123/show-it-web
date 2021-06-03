@@ -1,12 +1,23 @@
 <template>
-  <div class="container">
+  <div class="box">
     <label>{{ label }}</label>
     <input
       :type="type"
       :value="value"
       :placeholder="placeholder"
+      :class="{
+        'full-width': fullWidth,
+        'is-invalid': validation,
+      }"
       @input="emitValue($event)"
-    />
+    >
+
+    <span
+      v-show="validation"
+      class="invalid-feedback"
+    >
+      {{ validation }}
+    </span>
   </div>
 </template>
 
@@ -14,6 +25,16 @@
 export default {
   name: 'SInput',
   props: {
+    label: {
+      type: String,
+      required: true,
+      default: '',
+    },
+    placeholder: {
+      type: String,
+      required: false,
+      default: '',
+    },
     type: {
       type: String,
       required: false,
@@ -24,12 +45,12 @@ export default {
       required: false,
       default: '',
     },
-    label: {
-      type: String,
-      required: true,
-      default: '',
+    fullWidth: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
-    placeholder: {
+    validation: {
       type: String,
       required: false,
       default: '',
@@ -44,8 +65,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin: 1rem;
+.box {
+  margin: 1.5rem;
 
   display: flex;
   flex-direction: column;
@@ -68,7 +89,23 @@ export default {
     &:focus {
       border: 2px solid var(--blue) ;
       box-shadow: 0 0 0 .3rem var(--blue-transparent) ;
+
     }
+
+    &.is-invalid {
+      border: 2px solid var(--red) ;
+      &:focus {
+        box-shadow: 0 0 0 .3rem var(--red-transparent) ;
+      }
+    }
+
+    &.full-width {
+      width: 100%;
+    }
+  }
+
+  span.invalid-feedback {
+    color: var(--red);
   }
 }
 </style>

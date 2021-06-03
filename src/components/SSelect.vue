@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="box">
     <select ref="items" style="display: none;">
       <slot />
     </select>
@@ -78,8 +78,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin: 1rem;
+.box {
+  margin: 1.5rem;
 
   display: inline-block;
 

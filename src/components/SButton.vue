@@ -1,5 +1,8 @@
 <template>
-  <button v-if="!to" :class="{
+  <button
+    v-if="!to"
+    :type="type"
+    :class="{
       btn: true,
       'btn-yellow': true,
       outlined
@@ -8,13 +11,16 @@
     <slot />
   </button>
 
-  <router-link v-else :to="to" :class="{
+  <router-link
+    v-else
+    :to="to"
+    :class="{
       btn: true,
       'btn-yellow': true,
       outlined
     }"
   >
-    <slot/>
+    <slot />
   </router-link>
 </template>
 
@@ -22,6 +28,11 @@
 export default {
   name: 'SButton',
   props: {
+    type: {
+      type: String,
+      required: false,
+      default: 'submit',
+    },
     outlined: {
       type: Boolean,
       required: false,
@@ -38,12 +49,17 @@ export default {
 
 <style lang="scss">
 .btn {
+  margin: 1.5rem;
+  height: 4.5rem;
+  width: 30rem;
   font-weight: bold;
-  padding: 1.5rem 8rem;
   border: none;
-  border-radius: .5rem;
-  margin-right: 1.5rem;
+  border-radius: 1.5rem;
   transition: all .2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-yellow {

@@ -1,58 +1,120 @@
 <template>
-  <div class="login">
-    <form @submit.prevent="">
-      <SInput
-        label="Email"
-        placeholder="Insira seu Email"
-        v-model="email"
-      />
+  <div class="container">
+    <div class="content">
+      <h1>Faça login no Show.it</h1>
 
-      <SInput
-        label="Senha"
-        type="password"
-        placeholder="Insira sua senha"
-        v-model="password"
-      />
+      <form @submit.prevent="login">
+        <SInput
+          v-model="user.email"
+          label="Email"
+          placeholder="Insira seu Email"
+          :validation="validations.email ? validations.email[0] : ''"
+        />
 
-      <SSelect label="Seletor" placeholder="Selecione um valor">
-        <option value="1">Item 1</option>
-        <option value="2">Item 2</option>
-        <option value="3">Item 3</option>
-      </SSelect>
-    </form>
+        <SInput
+          v-model="user.password"
+          label="Senha"
+          type="password"
+          placeholder="Insira sua senha"
+          :validation="validations.password ? validations.password[0] : ''"
+        />
+
+        <SButton>
+          Login
+        </SButton>
+      </form>
+    </div>
+
+    <div class="background" />
   </div>
 </template>
 
 <script>
 import SInput from '@/components/SInput.vue';
-import SSelect from '@/components/SSelect.vue';
+import SButton from '@/components/SButton.vue';
 
 export default {
   name: 'Login',
   components: {
     SInput,
-    SSelect,
+    SButton,
   },
   data() {
     return {
-      email: 'teste@teste.com',
-      password: '12345678',
-      test: '',
+      user: {
+        email: 'alexandra.kautzer@example.org',
+        password: 'password',
+      },
+      validations: [],
     };
   },
-  watch: {
-    test: (value) => console.log(value),
+  methods: {
+    async login() {
+      try {
+        const data = await this.$store.dispatch('user/login', this.user);
+
+        this.validations = [];
+
+        this.$notify({
+          type: 'success',
+          title: 'Sucesso!',
+          text: 'Usuário logado com sucesso!',
+        });
+
+        this.$router.push({ name: 'feed' });
+      } catch (error) {
+        if (error.response.status == 422) {
+          this.validations = error.response.data;
+
+          this.$notify({
+            type: 'warn',
+            title: 'Ops!',
+            text: 'Verifique se os dados foram preenchidos corretamente.',
+          });
+
+          return;
+        }
+
+        this.$notify({
+          type: 'error',
+          title: 'Erro!',
+          text: 'Houve um erro durante a autenticação.',
+        });
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.login {
+.container {
   height: 100vh;
   width: 100vw;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
+  align-items: stretch;
+
+  .content {
+    width: 50vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: 4rem;
+      font-weight: bold;
+    }
+  }
+
+  .background {
+    flex: 1;
+    max-height: 100vh;
+    max-width: 50vw;
+    background: url('~@/assets/images/login-bg.jpg') no-repeat;
+    background-size: cover;
+  }
 }
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view />
+
+    <notifications />
   </div>
 </template>
 
@@ -13,11 +15,13 @@
   --orange: #EE7B01;
   --blue: #1F5EFF;
   --blue-transparent: #1F5EFF55;
-  --blue-transparent-light: #1f5fff34;
-  --brown: #2B1106;
+  --blue-transparent-light: #1F5EFF35;
+  --red: #C93359;
+  --red-transparent: #C9335955;
+  --red-transparent-light: #C9335935;
+
   --black: #232323;
   --white: #FFFFFF;
-
   --gray: #E0E0E0;
   --dark-gray: #BDBDBD;
 
@@ -51,4 +55,6 @@ button {
 a {
   text-decoration: none;
 }
+
+@import '~@/assets/scss/notification.scss';
 </style>
