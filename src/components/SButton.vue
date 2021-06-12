@@ -1,27 +1,29 @@
 <template>
-  <button
-    v-if="!to"
-    :type="type"
-    :class="{
-      btn: true,
-      'btn-yellow': true,
-      outlined
-    }"
-  >
-    <slot />
-  </button>
+  <div class="box">
+    <button
+      v-if="!to"
+      :type="type"
+      :class="{
+        btn: true,
+        'btn-yellow': true,
+        outlined
+      }"
+    >
+      <slot />
+    </button>
 
-  <router-link
-    v-else
-    :to="to"
-    :class="{
-      btn: true,
-      'btn-yellow': true,
-      outlined
-    }"
-  >
-    <slot />
-  </router-link>
+    <router-link
+      v-else
+      :to="to"
+      :class="{
+        btn: true,
+        'btn-yellow': true,
+        outlined
+      }"
+    >
+      <slot />
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -48,35 +50,46 @@ export default {
 </script>
 
 <style lang="scss">
-.btn {
+.box {
   margin: 1.5rem;
-  height: 4.5rem;
-  width: 30rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 1.5rem;
-  transition: all .2s;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .btn {
+    padding: 0 1.6rem;
+    height: 5.5rem;
+    width: 100%;
+    color: var(--dark);
+    font-weight: bold;
+    border: none;
+    border-radius: 1.5rem;
+    transition: all .2s;
 
-.btn-yellow {
-  background: var(--yellow);
-
-  &:hover {
-    background: var(--dark-yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  &.outlined {
-    background: transparent;
-    color: var(--yellow);
-    border: 2px solid var(--yellow);
+  // Yellow
+  .btn-yellow {
+    background: var(--yellow);
 
     &:hover {
-      background: var(--yellow);
-      color: var(--black);
+      background: var(--dark-yellow);
+    }
+
+    &:focus {
+      border: 2px solid var(--yellow) ;
+      box-shadow: 0 0 0 .3rem var(--yellow-transparent) ;
+    }
+
+    &.outlined {
+      background: transparent;
+      color: var(--yellow);
+      border: 2px solid var(--yellow);
+
+      &:hover {
+        background: var(--yellow);
+        color: var(--black);
+      }
     }
   }
 }

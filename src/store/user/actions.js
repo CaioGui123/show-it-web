@@ -16,7 +16,7 @@ export default {
   },
   async logout({ commit }) {
     try {
-      const response = await axios.post("logout")
+      const response = await axios.post("logout");
 
       commit('SET_USER', {});
       commit('REMOVE_TOKEN');
@@ -25,5 +25,16 @@ export default {
     } catch (error) {
       return Promise.reject(error);
     }
-  }
+  },
+  async register({ commit, dispatch }, payload) {
+    try {
+      const { data } = await axios.post("register", payload);
+
+      await dispatch('login', payload);
+
+      return Promise.resolve(data);
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  },
 }

@@ -1,4 +1,16 @@
 .vue-notification-group {
-  top: 1rem !important;
+  bottom: 1rem !important;
   right: 1rem !important;
+  
+  .vue-notification {
+    border-radius: .2rem !important;
+
+    .notification-title {
+      font-size: 1.6rem;
+    }
+  
+    .notification-content {
+      font-size: 1.4rem;
+    }
+  }
 }

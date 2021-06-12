@@ -2,7 +2,7 @@
   <div id="app">
     <router-view />
 
-    <notifications />
+    <notifications position="bottom right" />
   </div>
 </template>
 
@@ -12,8 +12,11 @@
 :root {
   --yellow: #FCC003;
   --dark-yellow: #E0AF15;
+  --yellow-transparent: #FCC00355;
+  --yellow-transparent-light: #FCC00335;
   --orange: #EE7B01;
   --blue: #1F5EFF;
+  --blue-dark: #1a4ac5;
   --blue-transparent: #1F5EFF55;
   --blue-transparent-light: #1F5EFF35;
   --red: #C93359;
@@ -53,7 +56,12 @@ button {
 }
 
 a {
+  color: var(--blue);
   text-decoration: none;
+
+  &:hover {
+    color: var(--blue-dark);
+  }
 }
 
 @import '~@/assets/scss/notification.scss';

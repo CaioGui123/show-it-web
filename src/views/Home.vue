@@ -76,8 +76,6 @@ export default {
 
   .card-footer {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
   }
 }
 </style>

@@ -23,6 +23,13 @@
           Login
         </SButton>
       </form>
+
+      <p>
+        Não tem uma conta?
+        <router-link :to="{ name: 'register' }">
+          Clique para se cadastrar
+        </router-link>
+      </p>
     </div>
 
     <div class="background" />
@@ -106,6 +113,10 @@ export default {
       margin-bottom: 1rem;
       font-size: 4rem;
       font-weight: bold;
+    }
+
+    form {
+      width: 40rem;
     }
   }
 

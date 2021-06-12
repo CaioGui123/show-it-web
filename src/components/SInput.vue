@@ -73,9 +73,9 @@ export default {
 
   input {
     background: var(--white);
-    height: 4.5rem;
-    width: 30rem;
-    padding: 1rem;
+    height: 5.5rem;
+    width: 100%;
+    padding: 1.6rem;
     border: 2px solid var(--gray);
     border-radius: 1.5rem;
     font-weight: 400;
@@ -89,7 +89,6 @@ export default {
     &:focus {
       border: 2px solid var(--blue) ;
       box-shadow: 0 0 0 .3rem var(--blue-transparent) ;
-
     }
 
     &.is-invalid {
