@@ -1,10 +1,17 @@
 <template>
-  <h1>Feed</h1>
+  <Container>
+    aadsdsadasdasdaadsaadsdsadasdasdaadsaadsdsadasdasdaadsaadsdsadasdasdaadsaadsdsadasdasdaads
+  </Container>
 </template>
 
 <script>
-export default {
+import Container from '@/components/Container.vue';
 
+export default {
+  name: 'Feed',
+  components: {
+    Container,
+  },
 };
 </script>
 

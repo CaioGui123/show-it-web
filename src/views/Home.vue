@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import SButton from '@/components/SButton.vue';
+import SButton from '@/components/Form/SButton.vue';
 
 export default {
   name: 'Home',

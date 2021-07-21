@@ -42,7 +42,7 @@
       <p>
         Já tem uma conta?
         <router-link :to="{ name: 'login' }">
-          Clique entrar
+          Clique para entrar
         </router-link>
       </p>
     </div>
@@ -52,8 +52,8 @@
 </template>
 
 <script>
-import SInput from '@/components/SInput.vue';
-import SButton from '@/components/SButton.vue';
+import SInput from '@/components/Form/SInput.vue';
+import SButton from '@/components/Form/SButton.vue';
 
 export default {
   name: 'Login',

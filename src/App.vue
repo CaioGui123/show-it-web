@@ -11,28 +11,37 @@
 
 :root {
   --yellow: #FCC003;
-  --dark-yellow: #E0AF15;
+  --dark-yellow: #E5AF03;
   --yellow-transparent: #FCC00355;
-  --yellow-transparent-light: #FCC00335;
-  --orange: #EE7B01;
   --blue: #1F5EFF;
   --blue-dark: #1a4ac5;
   --blue-transparent: #1F5EFF55;
-  --blue-transparent-light: #1F5EFF35;
+  --green: #0EEA6D;
+  --dark-green: #0DAC52;
+  --green-transparent: #0DAC5255;
   --red: #C93359;
+  --dark-red: #85223b;
   --red-transparent: #C9335955;
-  --red-transparent-light: #C9335935;
 
   --black: #232323;
   --white: #FFFFFF;
-  --gray: #E0E0E0;
-  --dark-gray: #BDBDBD;
+  --gray-100: #B4B8BD;
+  --gray-200: #92969E;
+  --gray-300: #878C94;
+  --gray-400: #6E737D;
+  --gray-500: #575C66;
 
   font-size: 62.5%;
 }
 
 #app {
   font-size: 1.6rem;
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 * {

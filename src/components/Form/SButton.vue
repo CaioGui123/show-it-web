@@ -55,7 +55,7 @@ export default {
 
   .btn {
     padding: 0 1.6rem;
-    height: 5.5rem;
+    height: 4.8rem;
     width: 100%;
     color: var(--dark);
     font-weight: bold;

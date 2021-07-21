@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import SInput from '@/components/SInput.vue';
-import SButton from '@/components/SButton.vue';
+import SInput from '@/components/Form/SInput.vue';
+import SButton from '@/components/Form/SButton.vue';
 
 export default {
   name: 'Login',
@@ -102,7 +102,7 @@ export default {
   align-items: stretch;
 
   .content {
-    width: 50vw;
+    flex: 1;
 
     display: flex;
     flex-direction: column;
@@ -122,7 +122,6 @@ export default {
 
   .background {
     flex: 1;
-    max-height: 100vh;
     max-width: 50vw;
     background: url('~@/assets/images/login-bg.jpg') no-repeat;
     background-size: cover;

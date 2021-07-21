@@ -73,17 +73,17 @@ export default {
 
   input {
     background: var(--white);
-    height: 5.5rem;
+    height: 4.8rem;
     width: 100%;
     padding: 1.6rem;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--gray-200);
     border-radius: 1.5rem;
     font-weight: 400;
     outline: none;
     transition: all .2s;
 
     &::placeholder {
-      color: var(--dark-gray);
+      color: var(--gray-200);
     }
 
     &:focus {
